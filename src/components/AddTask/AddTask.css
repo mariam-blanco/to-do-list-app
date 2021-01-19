@@ -1,0 +1,49 @@
+.add-task {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--base-space);
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.add-task input {
+  width: 100%;
+  font-size: 15px;
+  padding: 8px 4px;
+  margin-bottom: var(--base-space);
+  border: solid 1px var(--secondary-color);
+}
+
+.btn-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  outline: 0;
+  border: 0;
+  border-radius: 24px;
+  background-color: var(--btn-color);
+  font-family: var(--font-family-main);
+  color: white;
+}
+
+.btn-add .icon-add {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.btn-add .label-add {
+  display: inline-block;
+  margin-left: 12px;
+  padding-right: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}

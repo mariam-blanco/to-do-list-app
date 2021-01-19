@@ -1,0 +1,9 @@
+.todo-list {
+  flex: 1;
+  overflow: scroll;
+}
+
+.todo-list ul {
+  border-top: solid 1px var(--border-color);
+  padding: 0;
+}

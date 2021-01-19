@@ -1,0 +1,24 @@
+.todo-list .date {
+  display: flex;
+  align-items: center;
+  margin-left: var(--base-space);
+  margin-top: var(--base-space);
+  padding-bottom: 12px;
+}
+.date .month-number {
+  margin-right: 8px;
+  font-size: 34px;
+  font-weight: 800;
+}
+.date .week-day,
+.date .month {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.date .week-day {
+  font-weight: 600;
+}
+.date .month {
+  color: var(--primary-color-l);
+}
