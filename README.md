@@ -4,6 +4,8 @@
 This is a training repo to practice the React Hooks and `localStorage`.
 Also to learn how to use linters, in this case, Eslint and Prettier.
 
+![To Do List App Gif](https://github.com/mariam-blanco/to-do-list-app/blob/main/src/media/to-do-app.gif)
+
 
 ## Technologies
 - React Hooks
