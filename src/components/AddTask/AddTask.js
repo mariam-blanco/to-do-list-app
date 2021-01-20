@@ -20,6 +20,7 @@ const AddTask = ({ addNewTask, task, updateTasksList }) => {
         value={task.title || ""}
         name="task"
         type="text"
+        placeholder="Write a task"
       />
       <div className="btn-container">
         <button type="submit" className="btn-add extended">
