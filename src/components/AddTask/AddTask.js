@@ -1,16 +1,24 @@
 /* eslint-disable no-unused-expressions */
-import React from "react";
+import React, { useState } from "react";
 import "./AddTask.css";
 
-const AddTask = ({ addNewTask, task, updateTasksList }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    !task.title || updateTasksList();
+const AddTask = ({ updateTasksList }) => {
+
+  const [task, setTask] = useState({});
+
+  const handleChange = (e) => {
+    const newTask = e.target.value;
+    !newTask.length || setTask({
+      id: Date.now(),
+      title: newTask,
+      isCompleted: false,
+    });
   };
 
-  const handleChange = (event) => {
-    const newTask = event.target.value;
-    !newTask.length || addNewTask(newTask);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    !task.title || updateTasksList(task);
+    setTask("");
   };
 
   return (

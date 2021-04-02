@@ -2,7 +2,8 @@
 import React from "react";
 import "./Task.css";
 
-const Task = ({ id, title, isCompleted, completeTask, removeTask }) => {
+const Task = ({ task, completeTask, removeTask }) => {
+
   const handleComplete = (taskId) => {
     completeTask(taskId);
   };
@@ -13,7 +14,7 @@ const Task = ({ id, title, isCompleted, completeTask, removeTask }) => {
 
   const removeBtn = (
     <button
-      onClick={() => handleRemove(id)}
+      onClick={() => handleRemove(task.id)}
       className="btn-delete-task"
       type="button"
     >
@@ -22,13 +23,13 @@ const Task = ({ id, title, isCompleted, completeTask, removeTask }) => {
   );
 
   return (
-    <li className={`todo-list-item${isCompleted ? " completed" : ""}`}>
+    <li className={`todo-list-item${task.isCompleted ? " completed" : ""}`}>
       <span
-        onClick={() => handleComplete(id)}
-        className={`icon ${isCompleted ? "far fa-check-circle" : ""}`}
+        onClick={() => handleComplete(task.id)}
+        className={`icon ${task.isCompleted ? "far fa-check-circle" : ""}`}
       />
-      <p className="task">{title}</p>
-      {isCompleted && removeBtn}
+      <p className="task">{task.title}</p>
+      {task.isCompleted && removeBtn}
     </li>
   );
 };

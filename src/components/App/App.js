@@ -4,46 +4,30 @@ import TasksList from "../TasksList/TasksList";
 import AddTask from "../AddTask/AddTask";
 
 const App = () => {
-  const dataStored = JSON.parse(localStorage.getItem("dataStored"));
 
-  const [task, setTask] = useState({});
-  const [tasksList, setTasksList] = useState(dataStored || []);
+  const [tasksList, setTasksList] = useState([]);
+
+  useEffect(() => {
+    const dataStored = JSON.parse(localStorage.getItem("dataStored"));
+    setTasksList(dataStored || [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("dataStored", JSON.stringify(tasksList));
   }, [tasksList]);
 
-  const addNewTask = (newTask) => {
-    setTask({
-      id: Date.now(),
-      title: newTask,
-      isCompleted: false,
-    });
-  };
-
-  const updateTasksList = () => {
-    setTasksList((prev) => [...prev, task]);
-    setTask("");
-  };
+  const updateTasksList = (newTask) => setTasksList((prev) => [...prev, newTask]);
 
   const completeTask = (taskId) => {
     setTasksList(
-      tasksList.map((taskListItem) => {
-        if (taskListItem.id === taskId) {
-          return {
-            ...taskListItem,
-            isCompleted: true,
-          };
-        }
-        return taskListItem;
-      })
+      tasksList.map((taskListItem) => (taskListItem.id === taskId) ?
+        { ...taskListItem, isCompleted: true }
+        : taskListItem)
     );
   };
 
   const removeTask = (taskId) => {
-    const newTasksList = tasksList.filter(
-      (taskListItem) => taskListItem.id !== taskId
-    );
+    const newTasksList = tasksList.filter((taskListItem) => taskListItem.id !== taskId);
     setTasksList(newTasksList);
   };
 
@@ -58,8 +42,6 @@ const App = () => {
         removeTask={removeTask}
       />
       <AddTask
-        task={task}
-        addNewTask={addNewTask}
         updateTasksList={updateTasksList}
       />
     </div>
